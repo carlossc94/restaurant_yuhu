@@ -1,5 +1,7 @@
 package com.herprogramacion.restaurantericoparico.ui;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -8,11 +10,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.herprogramacion.restaurantericoparico.R;
 
@@ -28,6 +34,7 @@ public class FragmentoCategorias extends Fragment {
     private AppBarLayout appBarLayout;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private int numTab;
 
     public FragmentoCategorias() {
     }
@@ -37,6 +44,19 @@ public class FragmentoCategorias extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmento_paginado, container, false);
 
+        final Context context=view.getContext();
+        view.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                Toast.makeText(context, "Cilcked..", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
+
         if (savedInstanceState == null) {
             insertarTabs(container);
 
@@ -45,10 +65,24 @@ public class FragmentoCategorias extends Fragment {
             poblarViewPager(viewPager);
 
             tabLayout.setupWithViewPager(viewPager);
+
         }
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setOnTabSelectedListener(
+                new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
+                    @Override
+                    public void onTabSelected(TabLayout.Tab tab) {
+                        super.onTabSelected(tab);
+                        numTab = tab.getPosition();
+                       //prefs.edit().putIint("numTab", numTab).apply();
+
+
+                    }
+                });
 
         return view;
     }
+
 
     private void insertarTabs(ViewGroup container) {
         View padre = (View) container.getParent();
@@ -57,7 +91,10 @@ public class FragmentoCategorias extends Fragment {
         tabLayout = new TabLayout(getActivity());
         tabLayout.setTabTextColors(Color.parseColor("#FFFFFF"), Color.parseColor("#FFFFFF"));
         appBarLayout.addView(tabLayout);
+
     }
+
+
 
     private void poblarViewPager(ViewPager viewPager) {
         AdaptadorSecciones adapter = new AdaptadorSecciones(getFragmentManager());

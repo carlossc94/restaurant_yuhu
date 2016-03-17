@@ -1,6 +1,9 @@
 package com.herprogramacion.restaurantericoparico.ui;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -10,10 +13,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.herprogramacion.restaurantericoparico.R;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class ActividadPrincipal extends AppCompatActivity {
 
@@ -28,6 +36,7 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
 
         if (navigationView != null) {
             prepararDrawer(navigationView);
@@ -77,9 +86,6 @@ public class ActividadPrincipal extends AppCompatActivity {
                 fragmentoGenerico = new FragmentoCategorias();
                 break;
             case R.id.item_configuracion:
-                startActivity(new Intent(this, ActividadConfiguracion.class));
-                break;
-            case R.id.item_ubicacion:
                 startActivity(new Intent(this, ActividadConfiguracion.class));
                 break;
         }

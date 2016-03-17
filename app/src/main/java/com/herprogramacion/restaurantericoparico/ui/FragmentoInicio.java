@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.herprogramacion.restaurantericoparico.R;
+import com.herprogramacion.restaurantericoparico.modelo.Comida;
+import com.herprogramacion.restaurantericoparico.modelo.Comida_Principal;
+
+import java.util.List;
 
 /**
  * Fragmento para la sección de "Inicio"
@@ -16,9 +20,11 @@ import com.herprogramacion.restaurantericoparico.R;
 public class FragmentoInicio extends Fragment {
     private RecyclerView reciclador;
     private LinearLayoutManager layoutManager;
-    private AdaptadorInicio adaptador;
+    private SimpleAdapter adaptador;
+    List<Comida> items;
 
     public FragmentoInicio() {
+
     }
 
     @Override
@@ -30,7 +36,7 @@ public class FragmentoInicio extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         reciclador.setLayoutManager(layoutManager);
 
-        adaptador = new AdaptadorInicio();
+        adaptador = new SimpleAdapter(view.getContext(), Comida_Principal.getCourses());
         reciclador.setAdapter(adaptador);
         return view;
     }

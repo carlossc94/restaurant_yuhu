@@ -83,7 +83,7 @@ public class FragmentoCuenta extends Fragment {
         }
 
         @Override
-        public android.support.v4.app.Fragment getItem(int position) {
+        public Fragment getItem(int position) {
             return fragmentos.get(position);
         }
 
@@ -92,7 +92,7 @@ public class FragmentoCuenta extends Fragment {
             return fragmentos.size();
         }
 
-        public void addFragment(android.support.v4.app.Fragment fragment, String title) {
+        public void addFragment(Fragment fragment, String title) {
             fragmentos.add(fragment);
             titulosFragmentos.add(title);
         }
