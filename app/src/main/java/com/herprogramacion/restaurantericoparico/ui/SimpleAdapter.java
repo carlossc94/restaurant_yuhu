@@ -93,6 +93,7 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.SimpleView
         DetailActivity.createInstance(
                 (Activity) context, items.get(position))
         ;
+        Toast.makeText(view.getContext().getApplicationContext(), "Se selecciono " + position, Toast.LENGTH_SHORT);
 
     }
 
@@ -100,4 +101,5 @@ public class SimpleAdapter extends RecyclerView.Adapter<SimpleAdapter.SimpleView
 
 interface ItemClickListener {
     void onItemClick(View view, int position);
+
 }

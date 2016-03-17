@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.herprogramacion.restaurantericoparico.R;
+import com.herprogramacion.restaurantericoparico.modelo.Fragment_ubicacion;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -87,6 +88,9 @@ public class ActividadPrincipal extends AppCompatActivity {
                 break;
             case R.id.item_configuracion:
                 startActivity(new Intent(this, ActividadConfiguracion.class));
+                break;
+            case R.id.item_ubicacion:
+                fragmentoGenerico = new Fragment_ubicacion();
                 break;
         }
         if (fragmentoGenerico != null) {
