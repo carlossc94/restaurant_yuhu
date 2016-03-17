@@ -29,5 +29,6 @@
     <string name="etiqueta_info_usuario">Información del usuario</string>
 
     <string name="pasta">Pastas YUHU</string>
+    <string name="string_ubicacion">Ubicacion</string>
 
 </resources>

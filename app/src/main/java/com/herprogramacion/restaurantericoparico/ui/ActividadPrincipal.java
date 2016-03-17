@@ -79,6 +79,9 @@ public class ActividadPrincipal extends AppCompatActivity {
             case R.id.item_configuracion:
                 startActivity(new Intent(this, ActividadConfiguracion.class));
                 break;
+            case R.id.item_ubicacion:
+                startActivity(new Intent(this, ActividadConfiguracion.class));
+                break;
         }
         if (fragmentoGenerico != null) {
             fragmentManager

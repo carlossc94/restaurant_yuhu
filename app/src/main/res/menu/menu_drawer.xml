@@ -22,6 +22,11 @@
             android:id="@+id/item_configuracion"
             android:icon="@drawable/configuracion"
             android:title="@string/item_configuracion" />
+
+        <item
+            android:id="@+id/item_ubicacion"
+            android:icon="@drawable/configuracion"
+            android:title="@string/string_ubicacion" />
     </group>
 
 </menu>
